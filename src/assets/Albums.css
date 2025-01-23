@@ -1,0 +1,203 @@
+:root {
+  --primary: #ff0000; /* YouTube red */
+  --primary-gradient: linear-gradient(90deg, #ff416c, #ff4b2b); /* Gradient for active states */
+  --background: #0f0f0f;
+  --surface: #222222;
+  --text: #ffffff;
+}
+
+/* General Styles */
+.page {
+  padding: 20px;
+  background-color: var(--background); /* Dark background */
+  min-height: 100vh;
+  color: var(--text); /* White font color */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Category Buttons */
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.category-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  background-color: var(--primary); /* YouTube red */
+  color: var(--text); /* White text */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.category-buttons button.active {
+  background: var(--primary-gradient); /* Gradient for active state */
+}
+
+.category-buttons button:hover {
+  background: var(--primary-gradient); /* Gradient on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.category-buttons button:active {
+  transform: scale(0.95); /* Slight scale effect on click */
+}
+
+/* Music Grid */
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Music Card */
+.music-card {
+  background-color: var(--surface); /* Dark card background */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.music-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: var(--primary-gradient); /* Gradient background on hover */
+}
+
+.music-card:hover h3,
+.music-card:hover p {
+  color: var(--text); /* Change text color on hover */
+}
+
+.music-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.music-card h3 {
+  font-size: 18px;
+  margin: 10px;
+  text-align: center;
+  color: var(--text); /* White text */
+}
+
+.music-card p {
+  font-size: 14px;
+  margin: 10px;
+  color: #b3b3b3; /* Light gray for secondary text */
+  text-align: center;
+}
+
+/* Card Controls */
+.card-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Increased gap for better spacing */
+  margin: 10px 0;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px; /* Space between button and label */
+}
+
+.control-label {
+  font-size: 12px;
+  color: #b3b3b3; /* Light gray for labels */
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  opacity: 1; /* Always visible */
+  transform: translateY(0); /* No initial translation */
+}
+
+/* Play Button */
+.play-button {
+  background: var(--primary); /* YouTube red */
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text); /* White icon */
+  font-size: 16px; /* Ensure icon size is visible */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.play-button:hover {
+  background: var(--primary-gradient); /* Gradient on hover */
+  transform: scale(1.1); /* Slight scale effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+.play-button:active {
+  transform: scale(0.9); /* Slight scale effect on click */
+}
+
+/* Like Button */
+.like-button {
+  background: transparent;
+  border: 2px solid var(--primary); /* YouTube red border */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--primary); /* YouTube red heart symbol */
+  font-size: 16px; /* Ensure icon size is visible */
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.like-button.active {
+  background: var(--primary); /* YouTube red background when active */
+  color: var(--text); /* White heart symbol when active */
+}
+
+.like-button:hover {
+  background: var(--primary); /* YouTube red background on hover */
+  color: var(--text); /* White heart symbol on hover */
+  transform: scale(1.1); /* Slight scale effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+.like-button:active {
+  transform: scale(0.9); /* Slight scale effect on click */
+}
+
+/* Animation for Labels */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.music-card:hover .control-label {
+  animation: fadeInUp 0.3s ease forwards; /* Apply animation on hover */
+}

@@ -1,0 +1,203 @@
+/* Player Controls Container */
+.player-controls {
+    position: fixed;
+    bottom: 0;
+    left: 280px; /* Adjust for sidebar width */
+    right: 0;
+    background: var(--surface); /* Use the surface color from your theme */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+  }
+  
+  /* Track Info */
+  .track-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    max-width: 300px; /* Limit width to prevent overflow */
+  }
+  
+  .track-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  .track-info h4 {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--text); /* Use the text color from your theme */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .track-info p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7); /* Semi-transparent text */
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    flex: 2;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1); /* Light background for progress bar */
+    margin: 0 2rem;
+    position: relative;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  
+  .progress {
+    height: 100%;
+    background: var(--primary-gradient); /* Gradient for progress bar */
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  /* Controls */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+    justify-content: flex-end;
+  }
+  
+  .back-btn, .next-btn, .play-pause {
+    background: transparent;
+    border: none;
+    color: var(--text); /* Use the text color from your theme */
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s, opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+  
+  .back-btn:hover, .next-btn:hover, .play-pause:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+  
+  .play-pause {
+    background: var(--primary); /* Use the primary color for the play/pause button */
+    width: 40px;
+    height: 40px;
+  }
+  
+  .play-pause:hover {
+    background: var(--primary-gradient); /* Gradient on hover */
+  }
+  
+  /* Media Queries for Mobile and Tablet Views */
+  @media (max-width: 1024px) {
+    /* Tablet View */
+    .player-controls {
+      left: 200px; /* Adjust for smaller sidebar width */
+    }
+  
+    .track-info {
+      max-width: 250px;
+    }
+  
+    .progress-bar {
+      margin: 0 1.5rem;
+    }
+  
+    .controls {
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Mobile View */
+    .player-controls {
+      left: 0; /* Full width on mobile */
+      padding: 0.8rem;
+    }
+  
+    .track-info {
+      max-width: 200px;
+    }
+  
+    .track-info img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .track-info h4 {
+      font-size: 0.9rem;
+    }
+  
+    .track-info p {
+      font-size: 0.8rem;
+    }
+  
+    .progress-bar {
+      margin: 0 1rem;
+    }
+  
+    .controls {
+      gap: 0.8rem;
+    }
+  
+    .back-btn, .next-btn, .play-pause {
+      font-size: 1rem;
+    }
+  
+    .play-pause {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Small Mobile View */
+    .track-info {
+      max-width: 150px;
+    }
+  
+    .track-info img {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .track-info h4 {
+      font-size: 0.8rem;
+    }
+  
+    .track-info p {
+      font-size: 0.7rem;
+    }
+  
+    .progress-bar {
+      margin: 0 0.8rem;
+    }
+  
+    .controls {
+      gap: 0.6rem;
+    }
+  
+    .back-btn, .next-btn, .play-pause {
+      font-size: 0.9rem;
+    }
+  
+    .play-pause {
+      width: 30px;
+      height: 30px;
+    }
+  }

@@ -1,0 +1,144 @@
+/* Sidebar.css */
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: transparent; /* Semi-transparent dark background */
+  backdrop-filter: blur(10px); /* Glass-morphism effect */
+  color: #ffffff;
+  padding: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(223, 18, 18, 0.689); /* Subtle border */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* MusicWave Logo */
+.sidebar .musicwave-logo {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: transparent;
+  background: linear-gradient(90deg, rgba(200, 0, 0, 0.8), rgba(150, 0, 0, 0.4), rgba(200, 0, 0, 0.8)); /* Gradient background */
+  background-size: 200% 100%; /* Double width for animation */
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-align: center;
+  width: 100%;
+  animation: speedEffect 3s linear infinite; /* Speed animation */
+}
+
+@keyframes speedEffect {
+  0% {
+    background-position: 200% 0; /* Start from the right */
+  }
+  100% {
+    background-position: -200% 0; /* Move to the left */
+  }
+}
+
+/* Navigation Links */
+.sidebar nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  gap: 12px; /* Add gap between nav links */
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7); /* Semi-transparent text */
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.1); /* Light overlay on hover */
+  color: #ffffff; /* Full white text on hover */
+  transform: translateX(10px); /* Slight move effect */
+}
+
+.sidebar nav a.active {
+  background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Gradient background for active state */
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.3); /* Subtle shadow */
+}
+
+.sidebar nav a svg {
+  margin-right: 12px;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar nav a:hover svg {
+  transform: scale(1.1); /* Slight scale effect on hover */
+}
+
+/* Media Queries for Mobile and Tablet Views */
+@media (max-width: 768px) {
+  /* Mobile View */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-right: none;
+    border-top: 1px solid rgba(223, 18, 18, 0.689); /* Top border for mobile */
+    background: transparent; /* Remove background color for mobile */
+    backdrop-filter: none; /* Remove blur effect for mobile */
+    box-shadow: none; /* Remove box shadow for mobile */
+  }
+
+  /* MusicWave Logo */
+  .sidebar .musicwave-logo {
+    font-size: 24px; /* Smaller font size for mobile */
+    margin-bottom: 0; /* Remove margin */
+    width: auto; /* Adjust width */
+    background: linear-gradient(90deg, rgba(200, 0, 0, 0.8), rgba(150, 0, 0, 0.4), rgba(200, 0, 0, 0.8)); /* Reapply gradient */
+    background-size: 200% 100%; /* Double width for animation */
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: speedEffect 3s linear infinite; /* Reapply animation */
+    color: transparent; /* Ensure text is transparent */
+    margin-right: 20px; /* Add space between logo and icons */
+  }
+
+  /* Navigation Links */
+  .sidebar nav {
+    display: flex;
+    flex-direction: row; /* Align links horizontally */
+    align-items: center;
+    justify-content: space-around;
+    width: auto;
+    gap: 20px; /* Add gap between nav links */
+  }
+
+  .sidebar nav a {
+    padding: 10px;
+    margin: 0;
+    font-size: 0; /* Hide text */
+  }
+
+  .sidebar nav a span {
+    display: none; /* Hide text in mobile view */
+  }
+
+  .sidebar nav a svg {
+    margin-right: 0; /* Remove margin for icons */
+    font-size: 24px; /* Increase icon size */
+  }
+}

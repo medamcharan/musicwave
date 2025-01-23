@@ -1,0 +1,213 @@
+:root {
+  --primary: #ff0000; /* YouTube red */
+  --primary-gradient: linear-gradient(90deg, #ff416c, #ff4b2b); /* Gradient for active states */
+  --background: #0f0f0f;
+  --surface: #222222;
+  --text: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Roboto', sans-serif;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px;
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.music-card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.music-card:hover {
+  transform: translateY(-5px);
+}
+
+.music-card img {
+  width: 100%;
+  border-radius: 4px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem 0;
+}
+
+.card-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.play-btn, .fav-btn {
+  background: var(--primary);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.play-btn:hover, .fav-btn:hover {
+  transform: scale(1.1);
+}
+
+.fav-btn.active {
+  background: var(--primary-gradient); /* Gradient for active favorite button */
+  color: #ffffff;
+}
+
+.category-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.category-buttons button {
+  background: var(--surface);
+  border: 1px solid #333;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-buttons button.active {
+  background: var(--primary-gradient); /* Gradient for active category button */
+  border-color: transparent;
+  color: #ffffff;
+}
+
+/* Media Queries for Mobile and Tablet Views */
+@media (max-width: 1024px) {
+  /* Tablet View */
+  .sidebar {
+    width: 200px;
+    padding: 1.5rem;
+  }
+
+  .main-content {
+    margin-left: 200px;
+    padding: 1.5rem;
+  }
+
+  .music-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .category-buttons {
+    flex-wrap: wrap;
+  }
+
+  .category-buttons button {
+    padding: 0.5rem 0.8rem;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile View */
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .music-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .music-card {
+    padding: 0.8rem;
+  }
+
+  .card-content {
+    padding: 0.8rem 0;
+  }
+
+  .play-btn, .fav-btn {
+    width: 35px;
+    height: 35px;
+    padding: 0.4rem;
+  }
+
+  .category-buttons {
+    gap: 0.5rem;
+  }
+
+  .category-buttons button {
+    padding: 0.4rem 0.7rem;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small Mobile View */
+  .music-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .music-card {
+    padding: 0.6rem;
+  }
+
+  .card-content {
+    padding: 0.6rem 0;
+  }
+
+  .play-btn, .fav-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0.3rem;
+  }
+
+  .category-buttons button {
+    padding: 0.3rem 0.6rem;
+    font-size: 11px;
+  }
+}

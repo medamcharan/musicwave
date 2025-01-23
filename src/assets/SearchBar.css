@@ -1,0 +1,77 @@
+/* SearchBar.css */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .search-bar:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .search-bar input {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #ffffff; /* White text */
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 25px 0 0 25px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Semi-transparent placeholder */
+  }
+  
+  .search-bar input:focus {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on focus */
+  }
+  
+  .search-bar button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff; /* White text */
+    background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Gradient background */
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .search-bar button:hover {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slight scale effect */
+  }
+  
+  .search-bar button:active {
+    transform: scale(0.95); /* Slight shrink effect on click */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .search-bar {
+      max-width: 90%;
+    }
+  
+    .search-bar input {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+  
+    .search-bar button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
